@@ -1,0 +1,1142 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UN DAY | A World United</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --neon: #c6ff00;
+  --neon2: #a8e600;
+  --white: #f7f9f2;
+  --black: #080a06;
+  --panel: #11150d;
+  --muted: #a6ad9c;
+  --line: rgba(198,255,0,.22);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--black);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background:
+    radial-gradient(circle at 85% 10%,rgba(198,255,0,.10),transparent 30%),
+    radial-gradient(circle at 5% 70%,rgba(198,255,0,.06),transparent 30%);
+}
+
+button { font:inherit; cursor:pointer; }
+
+.nav {
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:17px 6%;
+  background:rgba(8,10,6,.84);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.logo {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:23px;
+  font-weight:800;
+  letter-spacing:-1px;
+  color:var(--neon);
+}
+
+.logo span { color:white; }
+
+.nav-links {
+  display:flex;
+  gap:25px;
+  align-items:center;
+}
+
+.nav-links a {
+  color:#dce2d4;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700;
+  transition:.25s;
+}
+
+.nav-links a:hover { color:var(--neon); }
+
+.menu-btn {
+  display:none;
+  background:none;
+  color:var(--neon);
+  border:1px solid var(--line);
+  padding:8px 12px;
+  border-radius:8px;
+}
+
+.hero {
+  min-height:100vh;
+  padding:150px 8% 90px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-content { max-width:850px; z-index:2; }
+
+.eyebrow {
+  color:var(--neon);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:4px;
+  margin-bottom:24px;
+}
+
+.hero h1 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(65px,11vw,145px);
+  line-height:.87;
+  letter-spacing:-9px;
+  text-transform:uppercase;
+}
+
+.hero h1 span {
+  color:var(--neon);
+  text-shadow:0 0 30px rgba(198,255,0,.35);
+}
+
+.hero p {
+  color:#c4cabb;
+  font-size:17px;
+  line-height:1.8;
+  max-width:620px;
+  margin:30px 0;
+}
+
+.hero-actions { display:flex; gap:14px; flex-wrap:wrap; }
+
+.btn {
+  border:1px solid var(--neon);
+  background:var(--neon);
+  color:#090c04;
+  padding:14px 23px;
+  border-radius:6px;
+  font-weight:800;
+  transition:.25s;
+}
+
+.btn:hover {
+  transform:translateY(-4px);
+  box-shadow:0 0 28px rgba(198,255,0,.35);
+}
+
+.btn-outline {
+  background:transparent;
+  color:var(--neon);
+}
+
+.hero-orbit {
+  position:absolute;
+  width:430px;
+  height:430px;
+  right:8%;
+  top:24%;
+  border:1px solid rgba(198,255,0,.28);
+  border-radius:50%;
+  box-shadow:0 0 70px rgba(198,255,0,.08),inset 0 0 70px rgba(198,255,0,.05);
+  display:grid;
+  place-items:center;
+  animation:float 7s ease-in-out infinite;
+}
+
+.hero-orbit::before,.hero-orbit::after {
+  content:"";
+  position:absolute;
+  border:1px solid rgba(198,255,0,.3);
+  border-radius:50%;
+}
+
+.hero-orbit::before { inset:35px; }
+.hero-orbit::after { inset:75px; }
+
+.orbit-text {
+  color:var(--neon);
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:800;
+  font-size:72px;
+  text-shadow:0 0 30px rgba(198,255,0,.6);
+}
+
+.orbit-small {
+  position:absolute;
+  bottom:65px;
+  color:white;
+  font-size:10px;
+  letter-spacing:4px;
+}
+
+@keyframes float {
+  0%,100% { transform:translateY(0) rotate(-5deg); }
+  50% { transform:translateY(-20px) rotate(5deg); }
+}
+
+section { padding:105px 8%; }
+
+.section-tag {
+  color:var(--neon);
+  font-size:12px;
+  letter-spacing:3px;
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.section-title {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(35px,5vw,65px);
+  letter-spacing:-2px;
+  line-height:1.05;
+  margin-bottom:25px;
+}
+
+.section-title span { color:var(--neon); }
+
+.section-intro {
+  color:var(--muted);
+  max-width:760px;
+  line-height:1.8;
+  font-size:16px;
+  margin-bottom:45px;
+}
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:25px;
+}
+
+.panel {
+  background:linear-gradient(145deg,rgba(198,255,0,.07),rgba(255,255,255,.015));
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:30px;
+  transition:.3s;
+}
+
+.panel:hover {
+  transform:translateY(-5px);
+  border-color:var(--neon);
+  box-shadow:0 12px 40px rgba(198,255,0,.07);
+}
+
+.panel h3 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:23px;
+  margin-bottom:15px;
+}
+
+.panel p {
+  color:#b8c0af;
+  line-height:1.8;
+  font-size:14px;
+}
+
+.big-number {
+  color:var(--neon);
+  font-family:'Space Grotesk',sans-serif;
+  font-size:55px;
+  font-weight:800;
+}
+
+.stat-label {
+  color:var(--muted);
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:25px;
+}
+
+.stat {
+  padding:20px;
+  background:#10140c;
+  border:1px solid var(--line);
+  border-radius:9px;
+}
+
+.history {
+  background:#0d1009;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.timeline {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.time-card {
+  border-top:3px solid var(--neon);
+  background:#14180f;
+  padding:25px 20px;
+  border-radius:0 0 10px 10px;
+}
+
+.year {
+  font-size:29px;
+  font-family:'Space Grotesk',sans-serif;
+  color:var(--neon);
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.time-card p { color:var(--muted); line-height:1.7; font-size:13px; }
+
+.org-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.org-card {
+  min-height:220px;
+  padding:25px;
+  background:#10140c;
+  border:1px solid rgba(198,255,0,.17);
+  border-radius:11px;
+  transition:.3s;
+}
+
+.org-card:hover {
+  border-color:var(--neon);
+  background:#171e0d;
+  transform:scale(1.025);
+}
+
+.org-num {
+  color:var(--neon);
+  font-size:12px;
+  letter-spacing:2px;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+.org-card h3 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:21px;
+  margin-bottom:12px;
+}
+
+.org-card p { color:var(--muted); font-size:13px; line-height:1.7; }
+
+.agencies {
+  background:#0d1009;
+}
+
+.agency-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.agency {
+  padding:24px;
+  background:#151a10;
+  border:1px solid var(--line);
+  border-radius:10px;
+}
+
+.agency strong {
+  display:block;
+  color:var(--neon);
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+.agency p { color:var(--muted); font-size:13px; line-height:1.7; }
+
+.goals-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.goal {
+  background:#12160d;
+  padding:20px;
+  border:1px solid rgba(198,255,0,.2);
+  border-radius:9px;
+  min-height:150px;
+}
+
+.goal b {
+  display:block;
+  color:var(--neon);
+  font-size:27px;
+  margin-bottom:12px;
+}
+
+.goal p { font-size:13px; color:#b8c0af; line-height:1.6; }
+
+.mun {
+  background:var(--neon);
+  color:#080a06;
+  position:relative;
+  overflow:hidden;
+}
+
+.mun .section-tag { color:#263400; }
+
+.mun .section-title span { color:#fff; }
+
+.mun .section-intro { color:#29320f; }
+
+.mun-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.mun-card {
+  padding:30px;
+  background:rgba(8,10,6,.94);
+  color:white;
+  border-radius:12px;
+}
+
+.mun-card h3 {
+  color:var(--neon);
+  font-family:'Space Grotesk',sans-serif;
+  font-size:25px;
+  margin-bottom:15px;
+}
+
+.mun-card p,.mun-card li {
+  color:#c5cbbd;
+  font-size:14px;
+  line-height:1.8;
+}
+
+.mun-card ul { padding-left:20px; margin-top:15px; }
+
+.mun-cta {
+  margin-top:25px;
+  padding:28px;
+  border:2px solid #080a06;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.mun-cta p { max-width:650px; line-height:1.7; }
+
+.mun-cta button {
+  background:#080a06;
+  color:var(--neon);
+  border:0;
+  padding:14px 20px;
+  border-radius:6px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.quiz-area { max-width:800px; }
+
+.quiz-box {
+  background:#11150d;
+  border:1px solid var(--line);
+  padding:30px;
+  border-radius:13px;
+}
+
+.quiz-progress {
+  height:5px;
+  background:#2a3022;
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:25px;
+}
+
+.quiz-progress div {
+  height:100%;
+  width:0%;
+  background:var(--neon);
+  transition:.4s;
+}
+
+.quiz-question {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:24px;
+  margin-bottom:22px;
+}
+
+.answers { display:grid; gap:12px; }
+
+.answer {
+  text-align:left;
+  padding:15px 18px;
+  background:#191e13;
+  color:white;
+  border:1px solid #343d28;
+  border-radius:7px;
+  transition:.2s;
+}
+
+.answer:hover { border-color:var(--neon); color:var(--neon); }
+
+.answer.correct { background:#263b08; border-color:var(--neon); }
+.answer.wrong { background:#3b1717; border-color:#ff6767; }
+
+.quiz-feedback {
+  margin-top:18px;
+  min-height:25px;
+  color:var(--neon);
+  font-weight:700;
+}
+
+.quiz-next {
+  margin-top:20px;
+  display:none;
+}
+
+.footer {
+  padding:55px 8% 30px;
+  border-top:1px solid var(--line);
+  text-align:center;
+}
+
+.footer-logo {
+  font-family:'Space Grotesk',sans-serif;
+  color:var(--neon);
+  font-size:35px;
+  font-weight:800;
+}
+
+.footer p {
+  color:var(--muted);
+  margin-top:12px;
+  font-size:13px;
+}
+
+.footer .credit {
+  color:white;
+  margin-top:35px;
+  border-top:1px solid var(--line);
+  padding-top:22px;
+  letter-spacing:2px;
+  font-weight:700;
+}
+
+.reveal {
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+@media(max-width:900px) {
+  .hero-orbit { opacity:.22; right:-150px; }
+  .timeline { grid-template-columns:repeat(2,1fr); }
+  .org-grid,.agency-grid { grid-template-columns:repeat(2,1fr); }
+  .goals-grid { grid-template-columns:repeat(2,1fr); }
+}
+
+@media(max-width:650px) {
+  .nav { padding:15px 5%; }
+  .menu-btn { display:block; }
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:65px;
+    left:0;
+    width:100%;
+    background:#0c1008;
+    padding:25px;
+    flex-direction:column;
+    border-bottom:1px solid var(--line);
+  }
+  .nav-links.open { display:flex; }
+  .hero { padding:135px 7% 80px; }
+  .hero h1 { letter-spacing:-5px; }
+  section { padding:75px 7%; }
+  .about-grid,.mun-grid { grid-template-columns:1fr; }
+  .timeline,.org-grid,.agency-grid,.goals-grid { grid-template-columns:1fr; }
+  .stats { grid-template-columns:1fr; }
+  .mun-cta { flex-direction:column; align-items:flex-start; }
+  .hero-orbit { width:300px; height:300px; right:-170px; top:35%; }
+  .orbit-text { font-size:45px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="logo">UN<span> / </span>DAY</div>
+  <button class="menu-btn" id="menuBtn">MENU</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">ABOUT</a>
+    <a href="#history">HISTORY</a>
+    <a href="#organs">ORGANS</a>
+    <a href="#agencies">AGENCIES</a>
+    <a href="#goals">SDGs</a>
+    <a href="#mun">MUN</a>
+    <a href="#quiz">QUIZ</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">24 OCTOBER · UNITED NATIONS DAY</div>
+    <h1>ONE<br><span>WORLD.</span><br>ONE<br>FUTURE.</h1>
+    <p>
+      Different nations. Different cultures. Different perspectives.
+      One shared responsibility: building a peaceful, fair and sustainable world.
+      Discover the United Nations and the power of global cooperation.
+    </p>
+    <div class="hero-actions">
+      <button class="btn" onclick="document.querySelector('#about').scrollIntoView()">EXPLORE THE UN</button>
+      <button class="btn btn-outline" onclick="document.querySelector('#mun').scrollIntoView()">DISCOVER MUN</button>
+    </div>
+  </div>
+
+  <div class="hero-orbit">
+    <div class="orbit-text">UN</div>
+    <div class="orbit-small">UNITED · NOT DIVIDED</div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="section-tag reveal">01 / UNDERSTANDING THE UN</div>
+  <h2 class="section-title reveal">What is the <span>United Nations?</span></h2>
+  <p class="section-intro reveal">
+    The United Nations (UN) is an international organisation founded on
+    24 October 1945. It brings countries together to discuss common problems,
+    prevent conflicts, protect human rights and work towards a better future.
+    It is a place where nations can communicate, negotiate and cooperate
+    instead of allowing disagreements to turn into conflict.
+  </p>
+
+  <div class="about-grid">
+    <div class="panel reveal">
+      <h3>A platform for the entire world</h3>
+      <p>
+        The UN was established after the Second World War, when countries
+        recognised the urgent need for an organisation that could help prevent
+        another devastating global conflict. Its founding document, the UN
+        Charter, sets out its purposes, principles and structure.
+        <br><br>
+        The UN is not a world government. It does not replace the governments
+        of individual countries. Instead, it provides a shared platform where
+        member states can discuss international issues, agree on common
+        approaches and coordinate action.
+      </p>
+    </div>
+    <div class="panel reveal">
+      <h3>Why does it matter?</h3>
+      <p>
+        Problems such as climate change, disease, poverty, armed conflict and
+        forced displacement can cross national borders. No country can solve
+        every international challenge alone. Cooperation makes it possible
+        to share knowledge, resources and responsibility.
+      </p>
+      <div class="stats">
+        <div class="stat">
+          <div class="big-number">1945</div>
+          <div class="stat-label">Founded</div>
+        </div>
+        <div class="stat">
+          <div class="big-number">193</div>
+          <div class="stat-label">Member states</div>
+        </div>
+        <div class="stat">
+          <div class="big-number">6</div>
+          <div class="stat-label">Principal organs</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="history" id="history">
+  <div class="section-tag reveal">02 / THE JOURNEY</div>
+  <h2 class="section-title reveal">A history of <span>cooperation.</span></h2>
+  <p class="section-intro reveal">
+    The UN emerged from the determination to build a more peaceful
+    international system after a period of enormous destruction.
+  </p>
+
+  <div class="timeline">
+    <div class="time-card reveal">
+      <div class="year">1945</div>
+      <p>The UN Charter came into force on 24 October. The United Nations officially began its work.</p>
+    </div>
+    <div class="time-card reveal">
+      <div class="year">1948</div>
+      <p>The Universal Declaration of Human Rights was adopted, setting out fundamental rights and freedoms.</p>
+    </div>
+    <div class="time-card reveal">
+      <div class="year">2000</div>
+      <p>The Millennium Development Goals were introduced to address major global development challenges.</p>
+    </div>
+    <div class="time-card reveal">
+      <div class="year">2015</div>
+      <p>All UN member states adopted the 2030 Agenda and its 17 Sustainable Development Goals.</p>
+    </div>
+  </div>
+</section>
+
+<section id="organs">
+  <div class="section-tag reveal">03 / HOW THE UN WORKS</div>
+  <h2 class="section-title reveal">The six principal <span>organs.</span></h2>
+  <p class="section-intro reveal">
+    The UN has six principal organs. Each has a different responsibility,
+    helping the organisation carry out its work around the world.
+  </p>
+
+  <div class="org-grid">
+    <div class="org-card reveal">
+      <div class="org-num">01 / REPRESENTATION</div>
+      <h3>General Assembly</h3>
+      <p>All 193 member states are represented. Each has one vote. The Assembly discusses international issues, approves the UN budget and makes recommendations.</p>
+    </div>
+    <div class="org-card reveal">
+      <div class="org-num">02 / PEACE & SECURITY</div>
+      <h3>Security Council</h3>
+      <p>It has primary responsibility for maintaining international peace and security. It has 15 members, including five permanent members with veto power.</p>
+    </div>
+    <div class="org-card reveal">
+      <div class="org-num">03 / COORDINATION</div>
+      <h3>ECOSOC</h3>
+      <p>The Economic and Social Council coordinates work on economic, social and development matters, including cooperation with many UN bodies.</p>
+    </div>
+    <div class="org-card reveal">
+      <div class="org-num">04 / INTERNATIONAL LAW</div>
+      <h3>International Court of Justice</h3>
+      <p>Based in The Hague, it settles legal disputes between states that accept its jurisdiction and gives advisory opinions on legal questions.</p>
+    </div>
+    <div class="org-card reveal">
+      <div class="org-num">05 / ADMINISTRATION</div>
+      <h3>Secretariat</h3>
+      <p>Led by the Secretary-General, it carries out the day-to-day work of the UN and supports its meetings, programmes and operations.</p>
+    </div>
+    <div class="org-card reveal">
+      <div class="org-num">06 / HISTORICAL ROLE</div>
+      <h3>Trusteeship Council</h3>
+      <p>It supervised trust territories as they moved towards self-government or independence. It suspended regular operations in 1994.</p>
+    </div>
+  </div>
+</section>
+
+<section class="agencies" id="agencies">
+  <div class="section-tag reveal">04 / SPECIALISED WORK</div>
+  <h2 class="section-title reveal">The organisations making <span>an impact.</span></h2>
+  <p class="section-intro reveal">
+    The wider UN system includes specialised agencies, funds and programmes
+    that work on specific challenges. They turn international cooperation
+    into practical action.
+  </p>
+
+  <div class="agency-grid">
+    <div class="agency reveal">
+      <strong>WHO</strong>
+      <p>World Health Organization. Leads and coordinates international public-health work and supports countries in tackling diseases and health emergencies.</p>
+    </div>
+    <div class="agency reveal">
+      <strong>UNICEF</strong>
+      <p>Works to protect children's rights and improve children's health, education, safety and well-being.</p>
+    </div>
+    <div class="agency reveal">
+      <strong>UNESCO</strong>
+      <p>Promotes international cooperation in education, science, culture and communication.</p>
+    </div>
+    <div class="agency reveal">
+      <strong>FAO</strong>
+      <p>Food and Agriculture Organization. Works towards food security and better nutrition, agriculture and rural development.</p>
+    </div>
+    <div class="agency reveal">
+      <strong>UNHCR</strong>
+      <p>Protects refugees, forcibly displaced people and stateless people, and supports efforts to find solutions for them.</p>
+    </div>
+    <div class="agency reveal">
+      <strong>UNDP</strong>
+      <p>United Nations Development Programme. Supports countries in reducing poverty, strengthening institutions and pursuing sustainable development.</p>
+    </div>
+  </div>
+</section>
+
+<section id="goals">
+  <div class="section-tag reveal">05 / THE 2030 AGENDA</div>
+  <h2 class="section-title reveal">17 goals. <span>One planet.</span></h2>
+  <p class="section-intro reveal">
+    The Sustainable Development Goals (SDGs) are 17 interconnected goals
+    adopted by all UN member states in 2015. They aim to create a world
+    with less poverty, better opportunities, equality and environmental
+    protection by 2030.
+  </p>
+
+  <div class="goals-grid">
+    <div class="goal reveal"><b>01</b><p>No Poverty</p></div>
+    <div class="goal reveal"><b>02</b><p>Zero Hunger</p></div>
+    <div class="goal reveal"><b>03</b><p>Good Health and Well-being</p></div>
+    <div class="goal reveal"><b>04</b><p>Quality Education</p></div>
+    <div class="goal reveal"><b>05</b><p>Gender Equality</p></div>
+    <div class="goal reveal"><b>06</b><p>Clean Water and Sanitation</p></div>
+    <div class="goal reveal"><b>07</b><p>Affordable and Clean Energy</p></div>
+    <div class="goal reveal"><b>08</b><p>Decent Work and Economic Growth</p></div>
+    <div class="goal reveal"><b>09</b><p>Industry, Innovation and Infrastructure</p></div>
+    <div class="goal reveal"><b>10</b><p>Reduced Inequalities</p></div>
+    <div class="goal reveal"><b>11</b><p>Sustainable Cities and Communities</p></div>
+    <div class="goal reveal"><b>12</b><p>Responsible Consumption and Production</p></div>
+    <div class="goal reveal"><b>13</b><p>Climate Action</p></div>
+    <div class="goal reveal"><b>14</b><p>Life Below Water</p></div>
+    <div class="goal reveal"><b>15</b><p>Life on Land</p></div>
+    <div class="goal reveal"><b>16</b><p>Peace, Justice and Strong Institutions</p></div>
+    <div class="goal reveal"><b>17</b><p>Partnerships for the Goals</p></div>
+  </div>
+</section>
+
+<section class="history">
+  <div class="section-tag reveal">06 / REAL-WORLD IMPACT</div>
+  <h2 class="section-title reveal">What does the UN <span>actually do?</span></h2>
+  <p class="section-intro reveal">
+    The UN works through diplomacy, humanitarian assistance, international
+    agreements, development programmes and cooperation between countries.
+  </p>
+
+  <div class="about-grid">
+    <div class="panel reveal">
+      <h3>Peacekeeping and diplomacy</h3>
+      <p>
+        UN peacekeeping missions are authorised by the Security Council and
+        may help protect civilians, support peace agreements and create
+        conditions for political solutions. Diplomacy gives countries
+        opportunities to negotiate and reduce tensions.
+      </p>
+    </div>
+    <div class="panel reveal">
+      <h3>Humanitarian assistance</h3>
+      <p>
+        UN organisations and partners provide support during emergencies,
+        including food, shelter, healthcare, clean water and protection
+        for people affected by conflict and disasters.
+      </p>
+    </div>
+    <div class="panel reveal">
+      <h3>Human rights</h3>
+      <p>
+        The UN helps develop international human-rights standards and
+        monitors concerns. Its work promotes dignity, equality and
+        fundamental freedoms for all people.
+      </p>
+    </div>
+    <div class="panel reveal">
+      <h3>Development and the environment</h3>
+      <p>
+        UN bodies support education, healthcare, poverty reduction,
+        environmental protection, climate cooperation and sustainable
+        development across countries.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="mun" class="mun">
+  <div class="section-tag reveal">07 / STUDENT DIPLOMACY</div>
+  <h2 class="section-title reveal">Think globally.<br><span>Speak confidently.</span></h2>
+  <p class="section-intro reveal">
+    You do not have to be a world leader to discuss world issues.
+    Model United Nations gives students the opportunity to experience
+    international diplomacy for themselves.
+  </p>
+
+  <div class="mun-grid">
+    <div class="mun-card reveal">
+      <h3>What is MUN?</h3>
+      <p>
+        Model United Nations (MUN) is an educational simulation of the
+        United Nations. Students act as delegates representing different
+        countries and take part in committee discussions.
+        <br><br>
+        They research their assigned country's policies, prepare speeches,
+        debate international issues, negotiate with other delegates and
+        work towards resolutions.
+        <br><br>
+        It is a simulation, not an actual UN meeting, but it helps students
+        understand how diplomacy and international decision-making work.
+      </p>
+    </div>
+
+    <div class="mun-card reveal">
+      <h3>Why should students participate?</h3>
+      <ul>
+        <li><b>Public speaking:</b> Learn to present ideas clearly and confidently.</li>
+        <li><b>Research:</b> Understand international issues and different viewpoints.</li>
+        <li><b>Critical thinking:</b> Analyse problems and evaluate possible solutions.</li>
+        <li><b>Negotiation:</b> Learn to reach agreements through respectful discussion.</li>
+        <li><b>Teamwork:</b> Collaborate with students who have different perspectives.</li>
+        <li><b>Global awareness:</b> Understand how decisions affect people around the world.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mun-cta reveal">
+    <p>
+      <b>Your voice matters.</b><br>
+      MUN is not only for students who already speak confidently.
+      It is an opportunity to practise, learn, make mistakes, improve
+      and discover how powerful informed discussion can be.
+    </p>
+    <button onclick="document.querySelector('#quiz').scrollIntoView({behavior:'smooth'})">TEST YOUR KNOWLEDGE</button>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="section-tag reveal">08 / KNOWLEDGE CHECK</div>
+  <h2 class="section-title reveal">How much do you <span>know?</span></h2>
+  <p class="section-intro reveal">
+    Put your understanding of the United Nations to the test.
+    Ten questions, one at a time. Let's see how well you know the world!
+  </p>
+
+  <div class="quiz-area reveal">
+    <div class="quiz-box">
+      <div class="quiz-progress"><div id="progress"></div></div>
+      <div id="quizCounter" class="section-tag">QUESTION 1 OF 10</div>
+      <div id="question" class="quiz-question"></div>
+      <div id="answers" class="answers"></div>
+      <div id="feedback" class="quiz-feedback"></div>
+      <button class="btn quiz-next" id="nextBtn">NEXT QUESTION</button>
+      <div id="result" style="display:none;text-align:center;padding:20px">
+        <div class="big-number" id="finalScore"></div>
+        <h3 style="margin:15px 0">Quiz completed!</h3>
+        <p style="color:var(--muted);line-height:1.7" id="resultText"></p>
+        <button class="btn" style="margin-top:20px" onclick="restartQuiz()">TRY AGAIN</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">ONE WORLD. ONE FUTURE.</div>
+  <p>International cooperation begins with understanding.</p>
+  <p class="credit">MADE BY AVYAN</p>
+</footer>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+
+menuBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+// Reveal elements when they enter the screen
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.12});
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Quiz
+const questions = [
+  {
+    q:"On which date is United Nations Day celebrated?",
+    a:["24 October","15 August","10 December","5 June"],
+    c:0,
+    e:"United Nations Day is celebrated every year on 24 October."
+  },
+  {
+    q:"In which year was the United Nations established?",
+    a:["1919","1939","1945","1950"],
+    c:2,
+    e:"The UN officially came into existence in 1945."
+  },
+  {
+    q:"Where is the headquarters of the UN located?",
+    a:["London","New York City","Geneva","Paris"],
+    c:1,
+    e:"The UN headquarters is in New York City, USA."
+  },
+  {
+    q:"How many member states does the UN have?",
+    a:["150","175","193","200"],
+    c:2,
+    e:"The United Nations has 193 member states."
+  },
+  {
+    q:"Which organ has primary responsibility for international peace and security?",
+    a:["General Assembly","Security Council","Secretariat","ECOSOC"],
+    c:1,
+    e:"The Security Council has primary responsibility for international peace and security."
+  },
+  {
+    q:"What does UNICEF mainly work to protect?",
+    a:["Space exploration","Children's rights and well-being","International banking","Ocean trade"],
+    c:1,
+    e:"UNICEF works to protect children's rights and improve their lives."
+  },
+  {
+    q:"Which organisation focuses on international public health?",
+    a:["WHO","UNESCO","FAO","UNDP"],
+    c:0,
+    e:"WHO stands for World Health Organization."
+  },
+  {
+    q:"How many Sustainable Development Goals are there?",
+    a:["10","12","15","17"],
+    c:3,
+    e:"There are 17 Sustainable Development Goals."
+  },
+  {
+    q:"What is MUN?",
+    a:["A sports competition","A UN simulation for students","A national election","A science experiment"],
+    c:1,
+    e:"MUN is an educational simulation where students represent countries and debate global issues."
+  },
+  {
+    q:"What is one major purpose of the United Nations?",
+    a:["Control every country","Promote international peace and cooperation","Replace national governments","Create one global currency"],
+    c:1,
+    e:"The UN promotes peace, cooperation, human rights and international development."
+  }
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+const questionEl = document.getElementById('question');
+const answersEl = document.getElementById('answers');
+const feedbackEl = document.getElementById('feedback');
+const nextBtn = document.getElementById('nextBtn');
+const progress = document.getElementById('progress');
+const counter = document.getElementById('quizCounter');
+const result = document.getElementById('result');
+
+function loadQuestion() {
+  answered = false;
+  const item = questions[current];
+
+  counter.textContent = `QUESTION ${current+1} OF ${questions.length}`;
+  questionEl.textContent = item.q;
+  feedbackEl.textContent = "";
+  nextBtn.style.display = "none";
+  progress.style.width = `${(current/questions.length)*100}%`;
+  answersEl.innerHTML = "";
+
+  item.a.forEach((answer,index) => {
+    const button = document.createElement('button');
+    button.className = "answer";
+    button.textContent = answer;
+    button.addEventListener('click', () => chooseAnswer(index,button));
+    answersEl.appendChild(button);
+  });
+}
+
+function chooseAnswer(index,button) {
+  if(answered) return;
+  answered = true;
+
+  const item = questions[current];
+  const all = document.querySelectorAll('.answer');
+
+  all.forEach((b,i) => {
+    b.disabled = true;
+    if(i === item.c) b.classList.add('correct');
+  });
+
+  if(index === item.c) {
+    score++;
+    feedbackEl.textContent = "CORRECT! " + item.e;
+  } else {
+    button.classList.add('wrong');
+    feedbackEl.textContent = "NOT QUITE. " + item.e;
+  }
+
+  nextBtn.textContent = current === questions.length-1 ? "SEE MY RESULT" : "NEXT QUESTION";
+  nextBtn.style.display = "inline-block";
+}
+
+nextBtn.addEventListener('click', () => {
+  current++;
+  if(current < questions.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
+});
+
+function showResult() {
+  progress.style.width = "100%";
+  questionEl.style.display = "none";
+  answersEl.style.display = "none";
+  feedbackEl.style.display = "none";
+  nextBtn.style.display = "none";
+  counter.style.display = "none";
+  result.style.display = "block";
+
+  document.getElementById('finalScore').textContent = `${score} / 10`;
+
+  let message = "";
+  if(score === 10) message = "Outstanding! You have an excellent understanding of the United Nations.";
+  else if(score >= 7) message = "Great work! You understand many important aspects of the UN.";
+  else if(score >= 4) message = "Good effort! Explore the sections again and strengthen your knowledge.";
+  else message = "Every expert starts somewhere. Revisit the learning sections and give it another try.";
+
+  document.getElementById('resultText').textContent = message;
+}
+
+function restartQuiz() {
+  current = 0;
+  score = 0;
+  questionEl.style.display = "block";
+  answersEl.style.display = "grid";
+  feedbackEl.style.display = "block";
+  counter.style.display = "block";
+  result.style.display = "none";
+  loadQuestion();
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
+```
